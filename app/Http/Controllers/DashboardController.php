@@ -11,4 +11,5 @@ class DashboardController extends Controller
         // Baris ini yang memanggil file halaman_dashboard.blade.php
         return view('halaman_dashboard');
     }
+    
 }

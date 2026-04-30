@@ -14,10 +14,11 @@
     <h1>Halaman Pengolahan KRS & KHS</h1>
     
     <div class="card">
-        <h3>Data Mahasiswa:</h3>
-        <p><strong>NIM:</strong> {{ $id }}</p>
-        <p><strong>Nama:</strong> {{ $nama }}</p>
-    </div>
+    <h3>Data Mahasiswa:</h3>
+    <!-- Variabel ini sekarang sudah terdefinisi -->
+    <p><strong>NIM:</strong> {{ $id }}</p>
+    <p><strong>Nama:</strong> {{ $nama }}</p>
+</div>
 
     <a href="/dashboard" class="btn"> Kembali ke Dashboard</a>
 </body>

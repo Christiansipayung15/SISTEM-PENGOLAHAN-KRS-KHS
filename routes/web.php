@@ -32,6 +32,9 @@ Route::get('/list', function () {
     return view('layout.list'); 
 });
 
+Route::get('/dashboard', function () {
+    return view('halaman_dashboard'); 
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,7 +43,6 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/user/{id}', function ($id) {
     return 'User dengan ID ' . $id;
 });
-
 
 Route::get('/list-product', function () {
     // Data dummy untuk simulasi isi tabel
@@ -78,4 +80,16 @@ Route::get('/pengolahankrsdankhs/{id}/{nama}', [pengolahankrsdankhsController::c
 Route::get('/christian', function () {
         return view('christian');
     });
+    Route::get('/dashboard_mahasiswa', function () {
+    return view('dashboard_mahasiswa');
+});
+ Route::get('/dashboard_admin', function () {
+    return view('dashboard_admin');
+});
+ Route::get('/dashboard_dosen', function () {
+    return view('dashboard_dosen');
+});
+ Route::get('/pengolahan_krs_dan_khs', function () {
+    return view('pengolahan_krs_dan_khs');
+});
 Route::get('/barang', [ListBarangController::class, 'tampilkan']);
