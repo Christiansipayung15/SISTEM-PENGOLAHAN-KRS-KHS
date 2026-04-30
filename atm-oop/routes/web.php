@@ -15,3 +15,4 @@ Route::get('/atm', [ATMController::class, 'demo']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/krs', [krsController::class, 'index']);
 Route::get('/pengolahan_krs_dan_khs', [KrsKhsController::class, 'index']);
+

@@ -13,11 +13,20 @@ use App\Http\Controllers\ListBarangController;
 //     return view('welcome');
 // });
 Route::view('/register', 'register');
-Route::view('/dashboard mahasiswa', 'dashboard_mahasiswa');
-Route::view('/dashboard dosen', 'dashboard_dosen');
-Route::view('/dashboard admin', 'dashboard_admin');
-Route::view('/login mahasiswa', 'login_mahasiswa');
-Route::view('/login dosen', 'login_dosen');
+Route::view('/welcome', 'welcome');
+Route::view('/dashboard_mahasiswa', 'dashboard_mahasiswa');
+Route::view('/dashboard_dosen', 'dashboard_dosen');
+Route::view('/contact', 'contact');
+Route::view('/dashboard_admin', 'dashboard_admin');
+Route::view('/login_mahasiswa', 'login_mahasiswa');
+Route::view('/list_product', 'list_product');
+Route::view('/list_barang', 'list_barang');
+Route::view('/halaman_dashboard', 'halaman_dashboard');
+Route::view('/login_dosen', 'login_dosen');
+Route::view('/halaman_login', 'halaman_login');
+Route::view('/pengolahan_krs_dan_khs', 'pengolahan_krs_dan_khs');
+Route::view('/home', 'home');
+
 
 // Tambahkan route baru menggunakan Controller
 Route::get('/', [HomeController::class, 'index']);
