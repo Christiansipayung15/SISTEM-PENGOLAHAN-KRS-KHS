@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard Mahasiswa | Si Pekas Polibatam</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  
   <script src="https://kit.fontawesome.com/a2d9d6c5f8.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -72,31 +74,41 @@
 </head>
 <body>
 
-<div class="d-flex">
-  <div class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-logo">
-        <img src="logo poltek.png" alt="Logo" style="width: 80%; height: 80%; object-fit: contain;">
-      </div>
-      <div class="brand-text">
-        <h6>Si Pekas Polibatam</h6>
-        <span>Dashboard Mahasiswa</span>
-      </div>
+<div class="fixed z-50 h-screen w-64 bg-[#0f172a] pt-5">
+  <div class="flex items-center px-5 mb-8">
+    <div class="w-11 h-11 bg-slate-800 flex items-center justify-center rounded-xl mr-3 overflow-hidden">
+      <img src="{{ asset('images/logo poltek.png') }}" class="w-4/5 object-contain">
     </div>
+    <div class="leading-tight">
+      <h6 class="font-extrabold text-white text-base m-0">Si Pekas Polibatam</h6>
+      <span class="text-xs text-slate-400">Dashboard Mahasiswa</span>
+    </div>
+  </div>
     
-    <a href="javascript:void(0)" class="nav-link-custom active" data-target="dashboard"><i class="fas fa-home me-2"></i> Dashboard</a>
-    <a href="javascript:void(0)" class="nav-link-custom" data-target="krs"><i class="fas fa-edit me-2"></i> Pengambilan KRS</a>
-    <a href="javascript:void(0)" class="nav-link-custom" data-target="khs"><i class="fas fa-file-invoice me-2"></i> Lihat KHS</a>
-    <hr class="mx-3 border-secondary">
-    <a href="#" class="text-warning" onclick="confirmLogout()"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+<nav class="px-4 space-y-2">
+  <a href="javascript:void(0)" class="nav-link-custom active block px-5 py-3 rounded-xl hover:bg-slate-800 transition text-white" data-target="dashboard">
+    <i class="fas fa-home mr-2"></i> Dashboard
+  </a>
+  <a href="javascript:void(0)" class="nav-link-custom block px-5 py-3 rounded-xl text-slate-300 hover:bg-slate-800 transition" data-target="krs">
+    <i class="fas fa-edit mr-2"></i> Pengambilan KRS
+  </a>
+  <a href="javascript:void(0)" class="nav-link-custom block px-5 py-3 rounded-xl text-slate-300 hover:bg-slate-800 transition" data-target="khs">
+    <i class="fas fa-file-invoice mr-2"></i> Lihat KHS
+  </a>
+  <div class="pt-4 mt-4 border-t border-slate-700">
+    <a href="#" class="block px-5 py-3 rounded-xl text-orange-400 hover:bg-red-900/20 transition" onclick="confirmLogout()">
+      <i class="fas fa-sign-out-alt mr-2"></i> Logout
+    </a>
   </div>
 
-  <div class="content">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <div>
-        <h4 class="fw-bold">Dashboard Mahasiswa</h4>
-        <p class="text-muted">Halo, <strong id="user-fullname">Lambok Christian Sipayung</strong> (NIM: <span id="user-nim">3312511087</span>)</p>
-      </div>
+ <div class="ml-64 p-8 w-full bg-slate-50 min-h-screen">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-8">
+    <div>
+      <h4 class="text-2xl font-bold text-slate-800">Dashboard Mahasiswa</h4>
+      <p class="text-slate-500">Halo, <span class="font-bold">Lambok Christian Sipayung</span></p>
+    </div>
+  
       
       <div class="profile-section">
         <div class="profile-avatar" id="profile-initial">--</div>
@@ -108,24 +120,24 @@
     </div>
 
     <section id="dashboard" class="active-section">
-      <div class="row g-3 mb-4">
-        <div class="col-md-4">
-          <div class="card card-stat p-4 border-start border-primary border-4">
-            <h6 class="text-muted small fw-bold">IP SEMESTER LALU</h6>
-            <h2 class="fw-bold text-primary">3.45</h2>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-stat p-4 border-start border-success border-4">
-            <h6 class="text-muted small fw-bold">MAKSIMAL SKS</h6>
-            <h2 class="fw-bold text-success"><span id="max-sks">24</span> SKS</h2>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-stat p-4 border-start border-warning border-4">
-            <h6 class="text-muted small fw-bold">SKS TERPILIH (KRS)</h6>
-            <h2 class="fw-bold text-warning"><span id="current-sks-dash">0</span> SKS</h2>
-          </div>
+  <!-- Gunakan Grid Tailwind -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-blue-600">
+      <h6 class="text-xs font-bold text-slate-400 uppercase tracking-wider">IP SEMESTER LALU</h6>
+      <h2 class="text-3xl font-black text-blue-600">3.45</h2>
+    </div>
+
+    <!-- Card 2: Maksimal SKS (Konversi dari col-md-4) -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-green-500">
+      <h6 class="text-xs font-bold text-slate-400 uppercase tracking-wider">MAKSIMAL SKS</h6>
+      <h2 class="text-3xl font-black text-green-600"><span id="max-sks">24</span> SKS</h2>
+    </div>
+
+    <!-- Card 3: SKS Terpilih (Konversi dari col-md-4) -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-orange-400">
+      <h6 class="text-xs font-bold text-slate-400 uppercase tracking-wider">SKS TERPILIH (KRS)</h6>
+      <h2 class="text-3xl font-black text-orange-400"><span id="current-sks-dash">0</span> SKS</h2>
+    </div>
         </div>
       </div>
     </section>
