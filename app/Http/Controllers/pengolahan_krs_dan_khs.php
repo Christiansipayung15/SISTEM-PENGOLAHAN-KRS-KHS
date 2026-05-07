@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class KrsKhsController extends Controller
+class pengolahan_krs_dan_khs extends Controller
 {
     public function index()
     {

@@ -1,4 +1,3 @@
-<footer style="margin-top: 20px; padding: 10px; background: #eee; text-align: center;">
- 
-    <p>&copy; {{ date('Y') }} My App</p>
+<footer class="mt-5 p-3 text-center text-muted border-top">
+    <p>&copy; {{ date('Y') }} Sistem KRS & KHS - Politeknik Negeri Batam</p>
 </footer>
